@@ -23,6 +23,7 @@ app.use(cookieParser())
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/skills', require('./routes/skill.routes'))
 app.use('/api/profile', require('./routes/profile.routes'))
+app.use('/api/matches', require('./routes/match.routes'))
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'Swapify API running ✅' }))
