@@ -8,6 +8,7 @@ const errorMiddleware = require('./middleware/error.middleware')
 
 const app = express()
 
+
 // Security & parsing
 app.use(helmet())
 app.use(cors({
