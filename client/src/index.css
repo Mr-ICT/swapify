@@ -135,3 +135,139 @@ body {
   font-size: 1.2rem;
   color: #888;
 }
+
+/* Swipe */
+.swipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.swipe-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+.swipe-card-avatar {
+  width: 100%;
+  height: 200px;
+  background: #f0eeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #6c63ff;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-card-info {
+  padding: 1.5rem;
+}
+
+.swipe-card-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.location {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-label.offers { color: #6c63ff; }
+.skill-label.wants { color: #ff6584; }
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.offer-tag { background: #f0eeff; color: #6c63ff; }
+.want-tag { background: #fff0f3; color: #ff6584; }
+
+.swipe-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.swipe-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.swipe-btn:hover { transform: scale(1.1); }
+.swipe-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.swipe-btn.reject { background: white; color: #ff6584; }
+.swipe-btn.accept { background: #6c63ff; color: white; }
+
+.swipe-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  gap: 1rem;
+  color: #888;
+}
