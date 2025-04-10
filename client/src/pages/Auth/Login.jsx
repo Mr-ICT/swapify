@@ -26,32 +26,53 @@ const Login = () => {
   }
 
   return (
-    <div className="auth-container">
+    <div className="auth-page">
       <div className="auth-card">
-        <h2>Welcome back 👋</h2>
-        <p>Login to your Swapify account</p>
+        <div className="auth-logo">
+          <div className="brand-icon">
+            <i className="ti ti-arrows-exchange" aria-hidden="true" />
+          </div>
+          <span>Swapify</span>
+        </div>
+        <h2>Welcome back</h2>
+        <p className="auth-sub">Log in to your account to continue</p>
+
         <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button className="btn btn-primary" type="submit" disabled={loading}>
+            {loading
+              ? <><i className="ti ti-loader-2" aria-hidden="true" /> Logging in...</>
+              : 'Log in'
+            }
           </button>
         </form>
-        <p>Don't have an account? <Link to="/register">Register</Link></p>
+
+        <p className="auth-footer">
+          Don't have an account? <Link to="/register">Sign up</Link>
+        </p>
       </div>
     </div>
   )

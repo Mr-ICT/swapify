@@ -1,21 +1,31 @@
-const SwipeButtons = ({ onLeft, onRight, disabled }) => {
+const SwipeButtons = ({ onLeft, onRight, onSuper, disabled }) => {
   return (
-    <div className="swipe-buttons">
+    <div className="swipe-actions">
       <button
-        className="swipe-btn reject"
+        className="action-btn pass"
         onClick={onLeft}
         disabled={disabled}
-        title="Pass"
+        aria-label="Pass"
       >
-        ✕
+        <i className="ti ti-x" aria-hidden="true" />
       </button>
+
       <button
-        className="swipe-btn accept"
+        className="action-btn like"
         onClick={onRight}
         disabled={disabled}
-        title="Match"
+        aria-label="Like"
       >
-        ♥
+        <i className="ti ti-heart" aria-hidden="true" />
+      </button>
+
+      <button
+        className="action-btn superswap"
+        onClick={onSuper}
+        disabled={disabled}
+        aria-label="Super swap"
+      >
+        <i className="ti ti-star" aria-hidden="true" />
       </button>
     </div>
   )

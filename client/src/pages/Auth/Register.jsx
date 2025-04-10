@@ -26,40 +26,65 @@ const Register = () => {
   }
 
   return (
-    <div className="auth-container">
+    <div className="auth-page">
       <div className="auth-card">
-        <h2>Join Swapify 🔄</h2>
-        <p>Trade skills, not money</p>
+        <div className="auth-logo">
+          <div className="brand-icon">
+            <i className="ti ti-arrows-exchange" aria-hidden="true" />
+          </div>
+          <span>Swapify</span>
+        </div>
+        <h2>Create your account</h2>
+        <p className="auth-sub">Trade skills, not money</p>
+
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? 'Creating account...' : 'Register'}
+          <div className="form-group">
+            <label>Full name</label>
+            <input
+              className="form-control"
+              type="text"
+              name="name"
+              placeholder="Your name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button className="btn btn-primary" type="submit" disabled={loading}>
+            {loading
+              ? <><i className="ti ti-loader-2" aria-hidden="true" /> Creating account...</>
+              : 'Create account'
+            }
           </button>
         </form>
-        <p>Already have an account? <Link to="/login">Login</Link></p>
+
+        <p className="auth-footer">
+          Already have an account? <Link to="/login">Log in</Link>
+        </p>
       </div>
     </div>
   )

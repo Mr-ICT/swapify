@@ -1,41 +1,60 @@
 const SwipeCard = ({ user }) => {
   return (
     <div className="swipe-card">
-      <div className="swipe-card-avatar">
+      <div className="swipe-card-img">
         {user.avatar_url ? (
           <img src={user.avatar_url} alt={user.name} />
         ) : (
-          <div className="avatar-placeholder">
+          <div style={{
+            width: 72, height: 72, borderRadius: '50%',
+            background: '#534AB7', display: 'flex',
+            alignItems: 'center', justifyContent: 'center',
+            color: 'white', fontSize: 26, fontWeight: 600
+          }}>
             {user.name?.charAt(0).toUpperCase()}
           </div>
         )}
-      </div>
-      <div className="swipe-card-info">
-        <h2>{user.name}</h2>
-        {user.location && <p className="location">📍 {user.location}</p>}
-        {user.bio && <p className="bio">{user.bio}</p>}
-        <div className="skills-section">
-          {user.offers?.length > 0 && (
-            <div className="skill-group">
-              <span className="skill-label offers">Offers</span>
-              <div className="skill-tags">
-                {user.offers.map((s, i) => (
-                  <span key={i} className="skill-tag offer-tag">{s}</span>
-                ))}
-              </div>
-            </div>
-          )}
-          {user.wants?.length > 0 && (
-            <div className="skill-group">
-              <span className="skill-label wants">Wants</span>
-              <div className="skill-tags">
-                {user.wants.map((s, i) => (
-                  <span key={i} className="skill-tag want-tag">{s}</span>
-                ))}
-              </div>
-            </div>
-          )}
+        <div className="swipe-badge">
+          <i className="ti ti-sparkles" aria-hidden="true" />
+          New
         </div>
+      </div>
+
+      <div className="swipe-card-body">
+        <div className="swipe-card-name">{user.name}</div>
+
+        {user.location && (
+          <div className="swipe-card-meta">
+            <i className="ti ti-map-pin" aria-hidden="true" />
+            {user.location}
+          </div>
+        )}
+
+        {user.bio && (
+          <div className="swipe-card-bio">{user.bio}</div>
+        )}
+
+        {user.offers?.length > 0 && (
+          <div className="skill-block">
+            <div className="skill-block-label label-offers">Offers</div>
+            <div className="tags">
+              {user.offers.map((s, i) => (
+                <span key={i} className="tag tag-offer">{s}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {user.wants?.length > 0 && (
+          <div className="skill-block" style={{ marginTop: 10 }}>
+            <div className="skill-block-label label-wants">Wants</div>
+            <div className="tags">
+              {user.wants.map((s, i) => (
+                <span key={i} className="tag tag-want">{s}</span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

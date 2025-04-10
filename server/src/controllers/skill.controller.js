@@ -1,5 +1,5 @@
 const { getAllSkills, addUserSkill, getUserSkills, removeUserSkill } = require('../models/skill.model')
-
+const pool = require('../config/db')
 // @route GET /api/skills
 const listSkills = async (req, res, next) => {
   try {
@@ -21,15 +21,26 @@ const getMySkills = async (req, res, next) => {
 }
 
 // @route POST /api/skills/me
+// @route POST /api/skills/me
 const addSkill = async (req, res, next) => {
   try {
-    const { skill_id, type, level } = req.body
+    const { skill_name, type, level } = req.body
 
-    if (!skill_id || !type) {
-      return res.status(400).json({ success: false, message: 'skill_id and type are required' })
+    if (!skill_name || !type) {
+      return res.status(400).json({ success: false, message: 'skill_name and type are required' })
     }
 
+    // Auto-create skill if it doesn't exist
+    const skillResult = await pool.query(
+      `INSERT INTO skills (name) VALUES ($1)
+       ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name
+       RETURNING id`,
+      [skill_name.trim()]
+    )
+
+    const skill_id = skillResult.rows[0].id
     const skill = await addUserSkill(req.user.id, skill_id, type, level)
+
     res.status(201).json({ success: true, skill })
   } catch (err) {
     next(err)
