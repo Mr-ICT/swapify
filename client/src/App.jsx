@@ -6,6 +6,9 @@ import Register from './pages/Auth/Register'
 import Profile from './pages/Profile/Profile'
 import Swipe from './pages/Swipe/Swipe'
 import Matches from './pages/Matches/Matches'
+import Deals from './pages/Deals/Deals'
+import DealRoom from './pages/Deals/DealRoom'
+
 
 const App = () => {
   return (
@@ -15,6 +18,8 @@ const App = () => {
         <Route path="/" element={<Navigate to="/swipe" replace />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/deals" element={<ProtectedRoute><Deals /></ProtectedRoute>} />
+<Route path="/deals/:id" element={<ProtectedRoute><DealRoom /></ProtectedRoute>} />
         <Route
           path="/swipe"
           element={

@@ -36,6 +36,10 @@ const Navbar = () => {
             <i className="ti ti-users" aria-hidden="true" />
             Matches
           </Link>
+          <Link to="/deals" className={`nav-link ${pathname === '/deals' ? 'active' : ''}`}>
+  <i className="ti ti-handshake" aria-hidden="true" />
+  Deals
+</Link>
           <Link to="/profile" className={`nav-link ${pathname === '/profile' ? 'active' : ''}`}>
             <i className="ti ti-user-circle" aria-hidden="true" />
             Profile
