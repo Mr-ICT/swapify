@@ -26,6 +26,7 @@ app.use('/api/skills', require('./routes/skill.routes'))
 app.use('/api/profile', require('./routes/profile.routes'))
 app.use('/api/matches', require('./routes/match.routes'))
 app.use('/api/deals', require('./routes/deal.routes'))
+app.use('/api/ratings', require('./routes/rating.routes'))
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'Swapify API running ✅' }))

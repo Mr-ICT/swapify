@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import RatingModal from './RatingModal'
 import { useParams, useNavigate } from 'react-router-dom'
 import { io } from 'socket.io-client'
 import axios from 'axios'
@@ -17,6 +18,7 @@ const DealRoom = () => {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
+  const [showRating, setShowRating] = useState(false)
   const socketRef = useRef(null)
   const bottomRef = useRef(null)
 
@@ -183,6 +185,26 @@ const DealRoom = () => {
         >
           <i className="ti ti-checks" aria-hidden="true" /> Mark as completed
         </button>
+      )}
+
+      {deal.status === 'completed' && (
+        <button
+          className="btn-save"
+          style={{ flexShrink: 0, background: '#BA7517' }}
+          onClick={() => setShowRating(true)}
+        >
+          <i className="ti ti-star" aria-hidden="true" /> Rate this swap
+        </button>
+      )}
+
+      {showRating && (
+        <RatingModal
+          deal={deal}
+          rateeId={deal.proposed_by === user?.id ? deal.user_b : deal.user_a}
+          rateeName="your swap partner"
+          onClose={() => setShowRating(false)}
+          onRated={() => setShowRating(false)}
+        />
       )}
 
       {/* Messages */}
