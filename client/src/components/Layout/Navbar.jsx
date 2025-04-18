@@ -32,6 +32,11 @@ const Navbar = () => {
             <i className="ti ti-cards" aria-hidden="true" />
             Swipe
           </Link>
+<Link to="/search" className={`nav-link ${pathname === '/search' ? 'active' : ''}`}>
+  <i className="ti ti-search" aria-hidden="true" />
+  Search
+</Link>
+
           <Link to="/matches" className={`nav-link ${pathname === '/matches' ? 'active' : ''}`}>
             <i className="ti ti-users" aria-hidden="true" />
             Matches

@@ -8,7 +8,7 @@ import Swipe from './pages/Swipe/Swipe'
 import Matches from './pages/Matches/Matches'
 import Deals from './pages/Deals/Deals'
 import DealRoom from './pages/Deals/DealRoom'
-
+import Search from './pages/Search/Search'
 
 const App = () => {
   return (
@@ -20,6 +20,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/deals" element={<ProtectedRoute><Deals /></ProtectedRoute>} />
 <Route path="/deals/:id" element={<ProtectedRoute><DealRoom /></ProtectedRoute>} />
+<Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
         <Route
           path="/swipe"
           element={
