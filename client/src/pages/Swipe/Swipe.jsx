@@ -97,7 +97,7 @@ const Swipe = () => {
           </div>
         ) : (
           <>
-            <SwipeCard user={queue[current]} />
+           <SwipeCard user={queue[current]} onSwipe={handleSwipe} />
             <SwipeButtons
               onLeft={() => handleSwipe('left')}
               onRight={() => handleSwipe('right')}
